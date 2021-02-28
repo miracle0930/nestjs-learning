@@ -4,14 +4,16 @@ import { DrinkService } from './drink.service';
 @Controller('/drink')
 export class DrinkController {
 
-  // @Get('/info/:drinkName')
-  // getDrinkInfo(@Param() foodName: string): string {
+  constructor(private drinkService: DrinkService) {}
 
-  // }
+  @Get('/info/:drinkName')
+  getDrinkInfo(@Param('drinkName') drinkName: string): string {
+    return this.drinkService.getDrinkInfo(drinkName);
+  }
 
-  // @Get('/getCombine/:foodName')
-  // getDrinkCombine(@Param() foodName: string): string {
-
-  // }
+  @Get('/getCombinedFood/:drinkName')
+  getCombinedFood(@Param('drinkName') drinkName: string): string {
+    return this.drinkService.getCombinedFood(drinkName);
+  }
 
 }

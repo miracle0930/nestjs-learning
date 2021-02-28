@@ -11,9 +11,9 @@ export class FoodController {
     return this.foodService.getFoodInfo(foodName);
   }
 
-  // @Get('/getCombine/:foodName')
-  // getFoodCombine(@Param() foodName: string): string {
-
-  // }
+  @Get('/getCombinedDrink/:foodName')
+  getCombinedDrink(@Param('foodName') foodName: string): string {
+    return this.foodService.getCombinedDrink(foodName); 
+  }
 
 }

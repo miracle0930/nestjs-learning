@@ -1,9 +1,11 @@
-import { Controller, Get, Post } from '@nestjs/common';
+import { Controller, Get, Post, UseGuards } from '@nestjs/common';
 import { BarService } from './bar.service';
 import { DrinkService } from '../drink/drink.service';
 import { FoodService } from '../food/food.service';
+import { EntryGuard } from '../guard/entry.guard';
 
 @Controller('/bar')
+@UseGuards(EntryGuard)
 export class BarController {
   constructor(
     private barService: BarService,
